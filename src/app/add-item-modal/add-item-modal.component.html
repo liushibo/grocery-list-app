@@ -1,0 +1,17 @@
+<p>
+<md-input-container style="width: 50%;">
+    <input [(ngModel)]="itemName" required mdInput placeholder="Name">
+</md-input-container>
+</p>
+<p>
+<md-input-container>
+    <textarea [(ngModel)]="itemNote" rows="4" cols="50" mdInput placeholder="Notes"></textarea>
+</md-input-container>
+</p>
+<div md-dialog-actions style="float:right;">
+  <button [disabled]="itemName.trim().length == 0" 
+  [ngClass]="{'primary-btn': itemName.trim().length != 0}" (click)="addItem();" md-button md-dialog-close="add">
+    Add
+  </button>
+  <button md-button md-dialog-close="cancel">Cancel</button>
+</div>

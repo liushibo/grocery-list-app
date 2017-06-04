@@ -1,0 +1,33 @@
+
+<md-card-content style="text-align:center;" *ngIf="isEmpty">No items, click "Add New" to add an item.</md-card-content>
+<md-spinner style="margin: 0 auto; height: 50px;" *ngIf="isEmpty === null"></md-spinner>
+
+<div [style.pointer-events]="!isloading ? 'auto' : 'none'">
+  <md-card [ngClass]="{'completed-item' : item.completed }" *ngFor="let item of itemsList | async" style="margin-top:5px;">
+    <md-checkbox [checked]="item.completed"  (click)="toggleComplete(item)">
+      <span class="title">{{item.name}}</span>
+    </md-checkbox>
+    <button md-button [disableRipple]="true" style="float:right; margin-top: -5px;" (click)="toggleExpand(item)" 
+      [ngClass]="{'expand-btn' : item.expand }">
+      <md-icon>keyboard_arrow_down</md-icon>
+    </button>
+    <br>
+    <div *ngIf="item.expand">
+        <md-input-container style="margin-top:15px; margin-left:13%; width:50%;">
+            <input #refName required mdInput placeholder="Name" [value]="item.name">
+        </md-input-container>
+        <md-input-container style="margin-top:15px; margin-left:13%;">
+            <textarea #refNote rows="5" cols="45" mdInput placeholder="Notes:">{{item.note}}</textarea>
+        </md-input-container>
+        <br>
+        <div style="margin-top:10px;">
+          <button md-button (click)="confirmRemove(item)"><i class="material-icons">delete</i></button>
+          <div style="float:right;">
+            <button class="primary-btn" (click)="updateItem(item, refName.value, refNote.value)" md-button>Save</button>
+            <button md-button (click)="revert(item, refName, refNote)">Cancel</button>
+          </div>
+        </div>
+      </div>
+  </md-card>
+</div>
+

@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+
+.primary-btn{
+    background-color:#62a70f; 
+    color:#F5F5F5 !important;
+}
+
+.main-container{
+    width:33%;
+}
+
+.completed-item{
+    background-color: #F1F8E9;
+}
+
+.completed-item .title{
+    text-decoration: line-through;
+}
+
+.expand-btn{
+    background-color: #BDBDBD;
+}
+
+@media (max-width: 900px) {
+   .main-container{
+        width:85%;
+    }
+}
+
+@media (max-width: 400px) {
+    md-card-title{
+        font-size:0.9em !important;
+    }
+}
