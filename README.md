@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
 ## Install Dependencies
-Run `npm install`
+Run `npm install`, need Node version 6+, npm version 5+, and @angular/cli 1.1.0
 
 ## Development server
 
